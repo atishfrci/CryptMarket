@@ -353,8 +353,8 @@ function GetSelectedValue(){
 			     
 			       
 				<p><select id="country">
-			        <option value="None" selected>----- Select -----</option>
-			        <option value="Bitcoin">Bitcoin</option>
+			        <!--<option value="None" selected>----- Select -----</option>-->
+			        <option value="Bitcoin" selected>Bitcoin</option>
 			        <option value="Ethereum" >Ethereum</option>
 			        <option value="Solana">Solana</option>
 					<option value="Cardano">Cardano</option>
