@@ -20,11 +20,11 @@
         // The countdown method.
         window.setInterval(function () {
             if (flag == 0) {
-                counter = Math.round(((counter - .45) + Number.EPSILON) * 100) / 100;
+                counter = Math.round(((counter - 1.45) + Number.EPSILON) * 100) / 100;
                 flag = 1;
             }
             else {
-                counter = Math.round(((counter - .35) + Number.EPSILON) * 100) / 100;
+                counter = Math.round(((counter - 2.35) + Number.EPSILON) * 100) / 100;
                 flag = 0;
             }
             //alert(counter);
@@ -44,7 +44,7 @@
             var span;
             span = document.getElementById("CurDate");
             span.innerHTML = today.toLocaleDateString("en-US", options) + today.toLocaleString("en-US").split(',')[1] + " EST";
-        }, 2000);
+        }, 1000);
         
         //Refresh or reload page.
         function refresh() {
