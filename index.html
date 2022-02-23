@@ -1,0 +1,588 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<title></title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+ <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+
+
+
+<!----- Random value change for window refresh--->
+<script>
+
+        var counter = document.getElementById("result");
+        if (counter == null)
+            counter = 78;
+        var flag = 0;
+        // The countdown method.
+        window.setInterval(function () {
+            if (flag == 0) {
+                counter = Math.round(((counter - .65) + Number.EPSILON) * 100) / 100;
+                flag = 1;
+            }
+            else {
+                counter = Math.round(((counter - .45) + Number.EPSILON) * 100) / 100;
+                flag = 0;
+            }
+            //alert(counter);
+            if (counter < 32) {
+                var res = document.getElementById("country").value;
+                if (res != 'None')
+                    counter = res;
+                else counter = 78;
+            }
+            if (counter > 0) {
+                var span;
+                span = document.getElementById("cnt");
+                span.innerHTML = counter;
+            }
+            const today = new Date();
+            var options = { year: 'numeric', month: 'short', day: 'numeric' };
+            var span;
+            span = document.getElementById("CurDate");
+            span.innerHTML = today.toLocaleDateString("en-US", options) + today.toLocaleString("en-US").split(',')[1] + " EST";
+        }, 3000);
+        
+        //Refresh or reload page.
+        function refresh() {
+            window.location.reload();
+        }
+    
+</script>
+
+<!---Dropdown List script--->
+<script>
+function GetSelectedValue(){
+				var e = document.getElementById("country");
+				var result = e.options[e.selectedIndex].value;
+				
+				document.getElementById("result").innerHTML = result;
+			}
+</script>
+
+
+
+<style type="text/css">     
+    select {
+        width:160px;
+		height:22px;
+		border:1px solid #008CBA;
+    }
+</style>
+
+
+
+<style>
+#myDIV {
+  width: 100%;
+  display: none;
+}
+</style>
+
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Radhika Adoni</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">8795700.00000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:SharedWithUsers msdt:dt="string"></mso:SharedWithUsers>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Radhika Adoni</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x0101003A0E2466ABA8FF44AF1560FB74EB5C1C</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:MediaLengthInSeconds msdt:dt="string"></mso:MediaLengthInSeconds>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+<div class="main">
+<div class="header">
+	<div class="topnav" id="myTopnav">
+		<div class="logo">
+		    <div class="contain" onclick="myFunction()">
+                <div class="bar1" style="margin-top:17px;"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+             </div>
+		     <p class="rpa">Crypto<span class="watch">Market</span> </p>  
+		</div>
+		 
+		 
+		 <a href="#">Latest</a>
+         <a href="#">WatchList</a>
+         <a href="#">Markets</a>
+         <a href="#">Investing</a>
+		 <a href="#">Barron's</a>
+		 <a href="#">Economy</a>
+		 <a href="#">Personal Finance</a>
+		 <a href="#">Retirement</a>
+		 <a href="#">Video</a>
+		 
+         
+     </div>
+	 <div class="searchicon">
+		  
+		    <input type="image" id="myBtn" src="img/search1.png" style="margin:2px 0px 0px 1px;"/>
+			
+	 </div>	
+	
+ </div>
+ 
+ 
+ 
+ 
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+   <div class="modal-content">
+    <span class="close">&times;</span>
+	   
+	   <div class="row justify-content-center" style="margin-top:60px;">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" id="search_string" type="search" placeholder="Search by name or keywords">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success"  onClick="myfun()">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+								<div id="demo"></div>
+                            </form>
+							
+                        </div>
+                        <!--end of col-->
+                    </div>
+	    
+    
+  </div>
+
+</div>
+
+    <div class="left-side">
+        
+    </div>
+
+    <div class="center">
+           
+		 <div class="container1">
+		 <div class="container-fluid">   
+		    <div class="row">  
+		        <div class="col-sm-4">
+		           <div class="items">
+		              <table cellpadding="2" cellspacing="0" border="" height="200px"  >
+		                <tr>
+			               <th>US &nbsp; Europe &nbsp; Asia</th>
+				           <th>FX &nbsp;  Rates</th>
+				           <th>Futures</th>
+				           <th>Crypto</th>
+			           </tr>
+					   
+			           <tr>
+			              <td>Asia Dow</td>
+			              <td>3312.80</td>
+				          <td><p style="color:red; font-weight:bold;">-28.35</p></td>
+			              <td><p style="color:red; font-weight:bold;">-0.85%</p></td>
+			          </tr>
+					  
+			          <tr>
+			             <td>Nikkei 225</td>
+			             <td>23,135.23</td>
+				         <td><p style="color:red; font-weight:bold;">-244.258</p></td>
+			             <td><p style="color:red; font-weight:bold;">-1.05%</p></td>
+			         </tr>
+					 
+			         <tr>
+			            <td>Hang Sang</td>
+			            <td>26,062.56</td>
+				        <td><p style="color:red; font-weight:bold;">-328.74</p></td>
+			            <td><p style="color:red; font-weight:bold;">-1.25%</p></td>
+			         </tr>
+			 
+			         <tr>
+			           <td>Shanghai</td>
+			           <td>2,878.12</td>
+				       <td><p style="color:red; font-weight:bold;">-6.58</p></td>
+			           <td><p style="color:red; font-weight:bold;">-0.23%</p></td>
+			         </tr>
+			 
+			         <tr>
+			           <td>Sensex</td>
+			           <td>40,850.29</td>
+				       <td><p style="color:green; font-weight:bold;">174.84</p></td>
+			           <td><p style="color:green; font-weight:bold;">0.43%</p></td>
+			         </tr>
+					 
+			         <tr>
+			           <td>Singapore</td>
+			           <td>3,159.79</td>
+				       <td><p style="color:red; font-weight:bold;">-13.29</p></td>
+			           <td><p style="color:red; font-weight:bold;">-0.42%</p></td>
+			         </tr>
+			 
+		            </table>
+		           </div>
+		    </div>
+		   
+		   
+		           <div class="col-sm-4">  
+		              <div class="items1">
+		                <p style=" font-family:calibri; font-size:16px; float:right; margin-top:8px; margin-right:10px;">RANG <span style="color:#008CBA; font-weight:bold;">ID</span></p>
+		                <img src="img/mr.png"/ style="margin-left:7px; margin-top:-5px;" width="90%" height="80%">
+		              </div>
+		 
+		              <div class="items2">
+		                 <table cellpadding="3" cellspacing="0" border="" height="215px" >
+		                     <tr>
+			                    <th>S&P 500</th>
+          		                 <th>Movers</th>
+								 
+						     </tr>
+		                     
+			                  <tr>
+			                     <td>LB</td>
+			                     <td><p style="color:green; font-weight:bold;">7.9</p></td>
+				                 <td>CRM</td>
+			                     <td><p style="color:red; font-weight:bold;">-3.2</p></td>
+			                 </tr>
+							 
+			                  <tr>
+			                     <td>CPRI</td>
+			                     <td><p style="color:green; font-weight:bold;">6.6</p></td>
+				                 <td>JEC</td>
+			                     <td><p style="color:red; font-weight:bold;">-26</p></td>
+			                  </tr>
+							  
+			                  <tr>
+			                     <td>EXPE</td>
+			                     <td><p style="color:green; font-weight:bold;">6.2</p></td>
+				                 <td>NRG</td>
+			                     <td><p style="color:red; font-weight:bold;">-2.2</p></td>
+			                  </tr>
+							  
+			                 <tr>
+			                    <td>PXD</td>
+			                    <td><p style="color:green; font-weight:bold;">5.7</p></td>
+			                 	<td>HFC</td>
+			                    <td><p style="color:red; font-weight:bold;">-2.1</p></td>
+			                 </tr>
+			 
+		                 </table>
+		                </div>
+		           </div>
+		  
+		   
+		 
+		   <div class="col-sm-4">
+		      <div class="items3">
+		         <table cellpadding="3" cellspacing="0" border="1" height="215px" >
+		            <tr>
+			           <th>Latest News</th>
+				       <th>ALL TIMES EASTERN</th>
+				    </tr>
+			 
+			        <tr>
+			           <td>12.00a</td>
+			           <td>Biden pounces on viral video in new campaign ad: ‘The world is laughing at President Trump’</td>
+				    </tr>
+  
+                    <tr>
+			           <td>12/04</td>
+				       <td>UPDATED Sailor kills two, then himself at Pearl Harbor naval base</td>
+			        </tr>
+					
+			        <tr>
+			           <td>12/04</td>
+				       <td>Warren rips Bloomberg: ‘I don’t believe that elections ought to be for sale’</td>
+			        </tr>
+					
+			        <tr>
+			          <td>12/04</td>
+				      <td>Huawei files legal challenge to overturn FCC ban on its equipment</td>
+			       </tr>
+		        </table>
+	          </div>
+		    </div>
+		 </div>
+	</div>
+		
+		<div class="innercontainer">
+		      <div class="navbar1">
+			 
+			      <div class="na">
+                     <p><a href="#index">Home ></a></p>
+                     <p><a href="#">Investing ></a></p>
+                     <p><a href="#">Qutes ></a></p>  
+                     <p><a href="#">Stoks ></a></p>
+					 <p><a href="#">US ></a></p>  
+                     <p><a href="#">XOM ></a></p>
+					 <p><a href="#">Overview </a></p>
+					 
+                  
+				  
+			         <button class="button1">Compare Quotes</button>
+                     <button class="button1 button2">Stock Screener</button>
+                     <button class="button1 button3">Earnings Calendar</button>
+                     <button class="button1 button4">Sectors</button>
+                     <button class="button1 button5">NYSE</button>
+					  
+				</div>   
+					
+					 
+			 </div>
+			  
+			  <div class="navbar2">
+			     
+			       
+				<p><select id="country">
+			        <!--<option value="None" selected>----- Select -----</option>-->
+			        <option value="Bitcoin" selected>Bitcoin</option>
+			        <option value="Ethereum" >Ethereum</option>
+			        <option value="Solana">Solana</option>
+					<option value="Cardano">Cardano</option>
+					<option value="Luna">Luna</option>
+					<option value="Luna">Doge Coin</option>
+		        </select> 
+		            
+					 <input type="image" src=".\img\search.png" onclick="GetSelectedValue()" style="border:1px solid #008CBA; position:absolute; margin-top:0px;"/>
+					 <span style="margin-left:35px; font-family:calibri; background-color:#008CBA; color:white; font-weight:bold;">XOM</span><span style="font-family:calibri; font-size:16px;"> U.S. NYSE</span><span style="float:right;font-family:calibri; font-size:18px; color:#008CBA; font-weight:bold;">Join TD Ameritrade.</span>
+					 </p>
+			 </div>
+			  
+		<div class="inneritem1">
+			   
+			  <h1 id="result">Exenon Pharmaceuticals</h1>
+			  <hr>
+			  <h6>PREMARKET</h6>
+			  <h2>$<span id="cnt">70.65</span></h2>
+			  <h3>0.28 0.41%</h3>
+			  <h4>Before Hours Volume:<span style="color:blue;">2.6K<span></h4>
+			  <h5>Last Updated: Dec 5, 2019 5:17 a.m. EST</h5>
+			  <h6>Energy  <span style="color:#4db74d;">1.20%</span></h6>
+	  </div>
+			
+			<div class="inneritem2">
+			    <h4><a href="#">Buy</a></h4>
+				<h5><a href="#">Sell</a></h5>
+			    <h2><a href="#">ADD TO WATCHLIST</a></h2>
+				<h3><a href="#">CREATE XOM ALERT</a></h3>
+				<hr>
+				<img src="img/tr.png" style="margin-top:0px;" width="100%" >
+	        </div>
+	</div>
+		
+		<div class="innercontainerright">
+		  <h2>YOUR WATCHLIST<span style="margin-left:5px; color:#dddddd; font-size:12px;">///////////////////////////////////</span></h2>
+		     <div class="childinner">
+		       <h3>Customize MarketWatch</h3>
+			   <p>Have Watchlists? Log in to see them here or sign up to get started.</p>
+			   <h4><a href="#" style="text-decoration:none; color:white;">CREATE ACCOUNT</a></h4>
+			   <h5><a href="#">... or Log In</a></h5>
+		  
+		     </div>
+			 <div class="childinner1">
+			    <h6>Recently Viewed Tickers</h6> 
+				<div class="div1">
+				  <p style="margin-top:5px;"><a href="#" >XOM</a></p>
+				  <p style="color:white; font-family:calibri; margin-top:-15px; margin-left:10px; font-size:14px;">68.65</p>
+				  <p style="color:white; font-family:calibri; margin-top:-15px; margin-left:10px; font-size:14px;">0.771.13%</p>
+				  
+				</div>
+				
+				<div class="div2">
+				   <p style="margin-top:5px;"><a href="#">XX:ADOW</a></p>
+				   <p style="color:white; font-family:calibri; margin-top:-15px; margin-left:10px; font-size:14px;">3,325.64</p>
+				   <p style="color:white; font-family:calibri; margin-top:-15px; margin-left:10px; font-size:14px;">13.08.0.40%</p>
+				</div>
+			 </div>
+			 
+		  </div>
+		   
+	 <div class="middle">
+	    <hr>    
+	       <div class="innermiddle">
+		       <div class="na">
+			         <p style="color:#d69628; font-weight:bold;">LATEST NEWS</p>
+                     <p><a href="#index">The Trump Impeachement </a></p>
+                     <p><a href="#">Micron Technology</a></p>
+                     <p><a href="#">Boeing</a></p>  
+                     <p><a href="#">PG&E</a></p>
+					 <p><a href="#">Netflix </a></p>  
+                     <p><a href="#">Tesla</a></p>
+					 <p><a href="#">Apple</a></p>
+					 <p><a href="#">Amazon</a></p>
+					 <p><a href="#">Disney</a></p>
+					 <p><a href="#">GE</a></p>
+					 <p><a href="#">Earnings & Watch</a></p>
+					 <p><a href="#">FedEx</a></p>
+					 <p><a href="#">Gifts Thats Pay Off</a></p>
+					 
+                  </div>
+		   </div>
+		 <hr>      
+	 </div>	
+	 
+	  <div class="content">
+	  
+	       <!-- Container -->
+<div class="container-fluid text-center bg-grey">
+  
+  <h4><span style="color:#ddd; font-size:15px;">////////////////</span>  Markets News  <span style="color:#ddd; font-size:15px;">////////////////</span></h4><br>
+  <div class="row text-center">
+    <div class="col-sm-3">
+      <div class="thumbnail">
+	
+        <img src="img/oil.jpg" width="97%">
+      
+		
+		
+        <strong><p>Oil futures settled slightly higher Monday, even as reports indicated that a recent pact to curb global output by OPEC and its allies may be eased and as Kuwait <a href="#" style="font-size:12px; color:#d69628;  margin-left:10px;">Read More..</a></p></strong>
+		
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <img src="img/chips.jpg" width="97%" >
+        
+        <strong><p>Speculators have amassed a record level of short wagers in futures for U.S. long-term government bonds, which have profited from a significant run-up <a href="#" style="font-size:12px; color:#d69628;  margin-left:10px;">Read More..</a></p></strong>
+		
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <img src="img/gold.jpg" width="97%">
+        
+        <strong><p>Gold prices settled higher on Monday to begin a shortened week of holiday trade, with the precious commodity punching above a level of technical resistance <a href="#" style="font-size:12px; color:#d69628;  margin-left:10px;">Read More..</a> </p></strong>
+      </div>
+    </div>
+	
+	<div class="col-sm-3">
+      <div class="thumbnail">
+       <img src="img/co.jpg" width="97%">
+        
+        <strong><p>Stocks rang in another round of closing records Monday as investors focused on a report that China will cut import tariffs for frozen pork, pharmaceuticals and<a href="#" style="font-size:12px; color:#d69628;  margin-left:10px;">Read More..</a></p><strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	  
+	  </div>
+
+    </div>
+
+     <div class="right-side">
+       
+     </div>
+	 
+</div>
+
+
+
+<!-- Footer  -->
+<footer class="footer">
+    <!-- Copyright -->
+	   <div class="copyright">
+            <p>Copyright © 2019. All Rights Reserved</p>
+       </div>
+</footer>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+<script>
+
+function myfun() {
+  var search_string = document.getElementById('search_string').value;
+  var arrayelement = ["Exxon Mobil Corp","WEX Inc","Exenon Pharmaceceuticals Inc"];
+  
+  var counter=0;
+  
+  for (i=0;i<arrayelement.length;i++) {
+	if(search_string==arrayelement[i]){
+		var flag=1;
+		counter=i;
+	}
+  }
+	if(flag==1){
+	var str= arrayelement[counter];
+ 
+    document.getElementById('result').innerHTML = str;
+	  if (window.getComputedStyle(str).display === "none")
+	  {
+	  str.style.display = "block";
+	  }
+	}
+	else 
+	{
+       document.getElementById('demo').innerHTML = "ITEM NOT FOUND";
+	}
+}
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
